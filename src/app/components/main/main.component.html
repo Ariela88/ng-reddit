@@ -1,0 +1,4 @@
+<div class="card-container" *ngIf="postData">
+    <app-post *ngFor="let post of postData" [postData]="post"></app-post>
+  </div>
+  
