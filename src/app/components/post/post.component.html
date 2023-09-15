@@ -1,11 +1,10 @@
 <div class="card-container" *ngIf="postData">
-    <div class="card card-two" *ngFor="let  post of postData">
-      <header>
-        <div class="avatar">
-          <img src="{{post.imageUrl}}" alt="" />
-        </div>
-      </header>
-      <h3>{{post.title}} {{post.author}}</h3>
-    </div>
+    <header>
+      <div class="avatar">
+        <img src="{{ postData.url }}" alt="" />
+      </div>
+    </header>
+    <h3>{{ postData.title }} {{ postData.author }}</h3>
+    <button (click)="addToPrefer()">Aggiungi ai preferiti</button>
   </div>
   

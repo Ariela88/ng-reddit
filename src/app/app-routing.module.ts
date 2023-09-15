@@ -1,10 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MainComponent } from './components/main/main.component';
+import { PreferComponent } from './components/prefer/prefer.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', component: MainComponent },
+  {
+    path: 'preferiti',
+    component: PreferComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

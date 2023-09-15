@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Post } from 'src/app/model/post';
 
 @Component({
@@ -7,5 +7,13 @@ import { Post } from 'src/app/model/post';
   styleUrls: ['./post.component.scss']
 })
 export class PostComponent {
-  @Input() postData?: Post|undefined
+  @Input() postData?:Post;
+  @Input() preferArray:Post | undefined
+  @Output() addPreferArray= new EventEmitter<Post>()
+
+
+  addToPrefer() {
+    this.addPreferArray.emit(this.postData); 
+  }
+  
 }

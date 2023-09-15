@@ -7,23 +7,19 @@ import { Post } from '../model/post';
 export class ConnectionService {
   constructor() {}
 
-  async getPost(): Promise<Post[]> {
-    try {
-      const response = await fetch('https://api.reddit.com/search.json?q=crypto=new');
-      if (!response.ok) {
-        throw new Error('Errore nella richiesta HTTP');
+  getPosts(): Promise<Post[]>{
+    return fetch('https://www.reddit.com/r/aww/new.json')
+    .then(resp => resp.json())
+    .then(redditObj => redditObj.data)
+    .then(data => data.children)
+    .then(children => children.map((c:any) => {
+      const newPost:Post = {
+        id: c.data.id,
+        title: c.data.title,
+        author: c.data.author,
+        url: c.data.url,
       }
-      const data = await response.json();
-      const postsArray: Post[] = [];
-      if (data.data && data.data.children) {
-        for (const information of data.data.children) {
-          postsArray.push(information.data);
-        }
-      }
-      return postsArray;
-    } catch (error) {
-      console.error('Errore nel recupero dei post per la categoria:', error);
-      throw error;
-    }
+      return newPost;
+    }))
   }
 }

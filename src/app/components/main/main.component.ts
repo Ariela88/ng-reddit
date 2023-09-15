@@ -1,7 +1,9 @@
+// main.component.ts
+
 import { Component } from '@angular/core';
 import { Post } from 'src/app/model/post';
 import { ConnectionService } from 'src/app/service/connection.service';
-import { PostComponent } from '../post/post.component';
+import { StorageService } from 'src/app/service/storage.service';
 
 @Component({
   selector: 'app-main',
@@ -9,22 +11,29 @@ import { PostComponent } from '../post/post.component';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent {
-
   postData: Post[] = [];
+  preferArray: Post[] = []; 
 
-  constructor(private connectionService: ConnectionService) {}
+  constructor(
+    private connectionService: ConnectionService,
+    private storageService: StorageService 
+  ) {}
 
   async ngOnInit(): Promise<void> {
     try {
-      const posts = await this.connectionService.getPost();
-      console.log(posts); // Visualizza i dati nella console
+    
+      this.preferArray = this.storageService.load('preferArray') || [];
+
+      const posts = await this.connectionService.getPosts();
       this.postData = posts;
     } catch (error) {
       console.error('Errore nella chiamata HTTP:', error);
     }
   }
-  
 
-  
-  
+  addPreferArray(post: Post) {
+    this.preferArray.push(post);
+    
+    this.storageService.save('preferArray', this.preferArray);
+  }
 }
