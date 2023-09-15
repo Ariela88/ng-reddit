@@ -1,4 +1,4 @@
-
+<a routerLink="/preferiti">Vai ai Preferiti</a>
 <div *ngFor="let post of postData" class="post-card-container">
     <app-post [postData]="post" (addPreferArray)="addPreferArray($event)"></app-post>
   </div>
