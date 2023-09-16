@@ -33,7 +33,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
         BrowserAnimationsModule,
         MatToolbarModule,
         MatIconModule,
-        MatButtonModule, // Assicurati di includere MatButtonModule
+        MatButtonModule,
     ]
 })
 export class AppModule { }
