@@ -9,6 +9,7 @@ import { StorageService } from 'src/app/service/storage.service';
 })
 export class PreferComponent implements OnInit {
   preferArray: Post[] = [];
+  isInPreferComponent = true
 
   constructor(private storageService: StorageService) {}
 

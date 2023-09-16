@@ -11,6 +11,7 @@ import { StorageService } from 'src/app/service/storage.service';
 export class MainComponent {
   postData: Post[] = [];
   preferArray: Post[] = [];
+  isInPreferComponent = false
 
   constructor(
     private connectionService: ConnectionService,
@@ -32,10 +33,11 @@ export class MainComponent {
     const isAlreadyAdded = this.preferArray.some(
       (existingPost) => existingPost.id === post.id
     );
-
+  
     if (!isAlreadyAdded) {
-      this.preferArray.push(post);
+      this.preferArray.push(post); 
       this.storageService.save('preferArray', this.preferArray);
     }
   }
+  
 }
