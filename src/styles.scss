@@ -6,3 +6,30 @@ html, body{
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+app-main{
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+  top: 100px;
+}
+
+app-prefer{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+}
+
+app-header{
+  display: block;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  
+}
+

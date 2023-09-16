@@ -7,13 +7,20 @@ import { Post } from 'src/app/model/post';
   styleUrls: ['./post.component.scss']
 })
 export class PostComponent {
-  @Input() postData?:Post;
-  @Input() preferArray:Post | undefined
-  @Output() addPreferArray= new EventEmitter<Post>()
-
+  @Input() postData?: Post;
+  @Input() preferArray: Post[] | undefined;
+  @Output() addPreferArray = new EventEmitter<Post>();
+  isFavorite: boolean = false;
+  @Output() removePreferArray = new EventEmitter<Post>();
+ 
+  @Input() isInPreferComponent: boolean = false;
 
   addToPrefer() {
+    this.isFavorite = !this.isFavorite;
     this.addPreferArray.emit(this.postData); 
   }
-  
+
+  removeFromPrefer() {
+    this.removePreferArray.emit(this.postData);
+  }
 }

@@ -1,10 +1,20 @@
 <div class="card-container" *ngIf="postData">
-    <header>
-      <div class="avatar">
-        <img src="{{ postData.url }}" alt="" />
-      </div>
-    </header>
-    <h3>{{ postData.title }} {{ postData.author }}</h3>
-    <button (click)="addToPrefer()">Aggiungi ai preferiti</button>
-  </div>
+  <header>
+    <div class="avatar">
+      <h3> {{ postData.author }} </h3>
+      <img src="{{ postData.url }}" alt="" />
+    </div>
+  </header>
+  <h3>{{ postData.title }} </h3>
+  <div matTooltip="Disabled" class="button-container">
+    <button
+    mat-icon-button
+    [class.favorite-button-selected]="isFavorite"
+    [class.remove-button]="isInPreferComponent"
+    (click)="isInPreferComponent ? removeFromPrefer() : addToPrefer()"
+  >
+    <mat-icon>{{ isInPreferComponent ? 'delete' : 'favorite' }}</mat-icon>
+  </button>
   
+  </div>
+</div>

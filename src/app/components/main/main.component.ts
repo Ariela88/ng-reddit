@@ -1,5 +1,3 @@
-// main.component.ts
-
 import { Component } from '@angular/core';
 import { Post } from 'src/app/model/post';
 import { ConnectionService } from 'src/app/service/connection.service';
@@ -8,20 +6,19 @@ import { StorageService } from 'src/app/service/storage.service';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss']
+  styleUrls: ['./main.component.scss'],
 })
 export class MainComponent {
   postData: Post[] = [];
-  preferArray: Post[] = []; 
+  preferArray: Post[] = [];
 
   constructor(
     private connectionService: ConnectionService,
-    private storageService: StorageService 
+    private storageService: StorageService
   ) {}
 
   async ngOnInit(): Promise<void> {
     try {
-    
       this.preferArray = this.storageService.load('preferArray') || [];
 
       const posts = await this.connectionService.getPosts();
@@ -32,8 +29,13 @@ export class MainComponent {
   }
 
   addPreferArray(post: Post) {
-    this.preferArray.push(post);
-    
-    this.storageService.save('preferArray', this.preferArray);
+    const isAlreadyAdded = this.preferArray.some(
+      (existingPost) => existingPost.id === post.id
+    );
+
+    if (!isAlreadyAdded) {
+      this.preferArray.push(post);
+      this.storageService.save('preferArray', this.preferArray);
+    }
   }
 }
