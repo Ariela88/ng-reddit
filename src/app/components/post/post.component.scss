@@ -4,7 +4,8 @@
     padding: 16px;
     display: flex;
     flex-direction: column;
-    border: solid 1px black;
+   
+    background-color: cadetblue;
 }
 
 .card-container img{
@@ -13,13 +14,18 @@
     object-fit: cover;
 }
 
-.favorite-button-selected {
-    color: red; 
-  }
+
 
   .button-container{
     display: flex;
     align-items: end;
     justify-content: center;
   width: 100%;
+  }
+
+  h3{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    flex-grow: 1;
+    font-size: 16px;
   }

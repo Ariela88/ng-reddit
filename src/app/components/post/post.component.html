@@ -9,12 +9,14 @@
   <div matTooltip="Disabled" class="button-container">
     <button
     mat-icon-button
-    [class.favorite-button-selected]="isFavorite"
+    [class.favorite-button-selected]="postData.isFavorite"
     [class.remove-button]="isInPreferComponent"
     (click)="isInPreferComponent ? removeFromPrefer() : addToPrefer()"
+    [style.color]="postData.isFavorite ? 'red' : 'black'"
   >
     <mat-icon>{{ isInPreferComponent ? 'delete' : 'favorite' }}</mat-icon>
   </button>
+  
   
   </div>
 </div>

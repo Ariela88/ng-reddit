@@ -5,10 +5,8 @@ import { PreferComponent } from './components/prefer/prefer.component';
 
 const routes: Routes = [
   { path: 'main', component: MainComponent },
-  {
-    path: 'preferiti',
-    component: PreferComponent,
-  },
+  { path: 'preferiti', component: PreferComponent},
+  { path: '', component: MainComponent }
 ];
 
 @NgModule({

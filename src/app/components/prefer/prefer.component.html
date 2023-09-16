@@ -1,4 +1,4 @@
 <div *ngFor="let post of preferArray"> 
-    <app-post [postData]="post" [isInPreferComponent]="true" (removePreferArray)="removePostFromPrefer($event)"></app-post>
+    <app-post [postData]="post" [preferArray]="preferArray" [isInPreferComponent]="true" (removePreferArray)="removePostFromPrefer($event)"></app-post>
   </div>
   

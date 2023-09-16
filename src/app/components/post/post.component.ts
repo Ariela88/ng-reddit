@@ -18,6 +18,7 @@ export class PostComponent {
   addToPrefer() {
     this.isFavorite = !this.isFavorite;
     this.addPreferArray.emit(this.postData); 
+    console.log(this.postData)
   }
 
   removeFromPrefer() {

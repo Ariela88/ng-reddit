@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { Post } from 'src/app/model/post';
 import { ConnectionService } from 'src/app/service/connection.service';
 import { StorageService } from 'src/app/service/storage.service';
@@ -10,8 +10,9 @@ import { StorageService } from 'src/app/service/storage.service';
 })
 export class MainComponent {
   postData: Post[] = [];
-  preferArray: Post[] = [];
-  isInPreferComponent = false
+ preferArray: Post[] = []
+  isInPreferComponent = false;
+  
 
   constructor(
     private connectionService: ConnectionService,
@@ -35,9 +36,12 @@ export class MainComponent {
     );
   
     if (!isAlreadyAdded) {
-      this.preferArray.push(post); 
+      post.isFavorite = true; 
+      this.preferArray.push(post);
       this.storageService.save('preferArray', this.preferArray);
     }
+    console.log(this.preferArray);
   }
+  
   
 }

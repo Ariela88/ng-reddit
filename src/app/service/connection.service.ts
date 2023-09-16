@@ -18,6 +18,7 @@ export class ConnectionService {
         title: c.data.title,
         author: c.data.author,
         url: c.data.url,
+        isFavorite: false
       }
       return newPost;
     }))
