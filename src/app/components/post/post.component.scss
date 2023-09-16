@@ -1,31 +1,35 @@
-.card-container{
-    width: 300px;
-    height: 600px;
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-   
-    background-color: cadetblue;
+// .card-container{
+//     width: 300px;
+//     height: 600px;
+//     padding: 16px;
+//     display: flex;
+//     flex-direction: column;
+//     border: solid 1px black;
+// }
+
+// .card-container img{
+//     width: 100%;
+//     height: 400px;
+//     object-fit: cover;
+// }
+
+// .favorite-button-selected {
+//     color: red; 
+//   }
+
+//   .button-container{
+//     display: flex;
+//     align-items: end;
+//     justify-content: center;
+//   width: 100%;
+//   }
+
+.example-card {
+  width: 400px;
+  height: 400px;
 }
 
-.card-container img{
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
 }
-
-
-
-  .button-container{
-    display: flex;
-    align-items: end;
-    justify-content: center;
-  width: 100%;
-  }
-
-  h3{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    text-align: center;
-    flex-grow: 1;
-    font-size: 16px;
-  }

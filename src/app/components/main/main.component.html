@@ -1,3 +1,13 @@
-<div *ngFor="let post of postData"> 
-  <app-post [postData]="post"(addPreferArray)="addPreferArray($event)"></app-post>
+<div class="main-header"> 
+  <span class="category-label">Categoria: {{selectedValue}}</span>
+<mat-select class="select-menu" [(ngModel)]="selectedValue" name="food" style="width: 300px;">
+  
+  <mat-option *ngFor="let category of categories" [value]="category.value" (click)="viewValue()">
+    {{category.name}} 
+  </mat-option>
+</mat-select>
+</div>
+
+<div *ngFor="let post of postData">
+  <app-post [postData]="post"></app-post>
 </div>

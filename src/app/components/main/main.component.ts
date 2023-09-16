@@ -1,4 +1,4 @@
-import { Component, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { Post } from 'src/app/model/post';
 import { ConnectionService } from 'src/app/service/connection.service';
 import { StorageService } from 'src/app/service/storage.service';
@@ -10,24 +10,55 @@ import { StorageService } from 'src/app/service/storage.service';
 })
 export class MainComponent {
   postData: Post[] = [];
- preferArray: Post[] = []
-  isInPreferComponent = false;
-  
+  preferArray: Post[] = [];
+  isInPreferComponent = false
+
+  public selectedValue: string = "";
+  public categories: any[] = [
+    {
+      "name": "Anime",
+      "value": "anime"
+    },
+    {
+      "name": "Most liked",
+      "value": "most_liked"
+    },
+    {
+      "name": "Popolari",
+      "value": "popular"
+    },
+    {
+      "name": "Programmazione",
+      "value": "programming"
+    },
+    {
+      "name": "Italia",
+      "value": "italy"
+    }
+  ]
+
 
   constructor(
     private connectionService: ConnectionService,
     private storageService: StorageService
-  ) {}
+  ) {
+    
+    
+  }
 
-  async ngOnInit(): Promise<void> {
-    try {
-      this.preferArray = this.storageService.load('preferArray') || [];
+  // async ngOnInit(): Promise<void> {
+  //   try {
+  //     this.preferArray = this.storageService.load('preferArray') || [];
 
-      const posts = await this.connectionService.getPosts();
-      this.postData = posts;
-    } catch (error) {
-      console.error('Errore nella chiamata HTTP:', error);
-    }
+  //     const posts = await this.connectionService.getPosts();
+  //     this.postData = posts;
+  //   } catch (error) {
+  //     console.error('Errore nella chiamata HTTP:', error);
+  //   }
+  // }
+  ngOnInit(): void {
+    this.postData = this.connectionService.getPosts(this.selectedValue)
+    
   }
 
   addPreferArray(post: Post) {
@@ -36,12 +67,13 @@ export class MainComponent {
     );
   
     if (!isAlreadyAdded) {
-      post.isFavorite = true; 
-      this.preferArray.push(post);
+      this.preferArray.push(post); 
       this.storageService.save('preferArray', this.preferArray);
     }
-    console.log(this.preferArray);
   }
-  
+
+  viewValue(){
+    this.postData = this.connectionService.getPosts(this.selectedValue)
+  }
   
 }

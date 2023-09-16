@@ -4,9 +4,10 @@ import { MainComponent } from './components/main/main.component';
 import { PreferComponent } from './components/prefer/prefer.component';
 
 const routes: Routes = [
-  { path: 'main', component: MainComponent },
-  { path: 'preferiti', component: PreferComponent},
-  { path: '', component: MainComponent }
+  {path: 'main', component: MainComponent},
+  {path: 'preferiti', component: PreferComponent},
+  {path: "", component: MainComponent},
+  {path: "**", component: MainComponent, pathMatch: "full"}
 ];
 
 @NgModule({

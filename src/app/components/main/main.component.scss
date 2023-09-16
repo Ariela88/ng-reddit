@@ -3,6 +3,30 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-  
+    border: 2px solid green;
    
   }
+
+  #mat-select-value-1{
+    width: 10px;
+
+  }
+
+  .main-header{
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    position: fixed;
+    top:60px;
+    background-color:#673ab7;
+    z-index: 999;
+    color: white;
+    padding-left: 28px;
+
+
+  }
+
+  .category-label{
+    padding: 0 24px;
+  }
+

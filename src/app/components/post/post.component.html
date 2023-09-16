@@ -1,4 +1,4 @@
-<div class="card-container" *ngIf="postData">
+<!-- <div class="card-container" *ngIf="postData">
   <header>
     <div class="avatar">
       <h3> {{ postData.author }} </h3>
@@ -9,14 +9,33 @@
   <div matTooltip="Disabled" class="button-container">
     <button
     mat-icon-button
-    [class.favorite-button-selected]="postData.isFavorite"
+    [class.favorite-button-selected]="isFavorite"
     [class.remove-button]="isInPreferComponent"
-    (click)="isInPreferComponent ? removeFromPrefer() : addToPrefer()"
-    [style.color]="postData.isFavorite ? 'red' : 'black'"
-  >
+    (click)="isInPreferComponent ? removeFromPrefer() : addToPrefer()">
     <mat-icon>{{ isInPreferComponent ? 'delete' : 'favorite' }}</mat-icon>
   </button>
   
-  
   </div>
-</div>
+</div> -->
+
+<mat-card class="example-card" *ngIf="postData">
+  <mat-card-header>
+    <mat-card-title>{{ postData.author }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>{{ postData.title }}</p>
+  </mat-card-content>
+  <div *ngIf="postData.url.includes('jpg')" class="post-image" style=" height: 400px; width: 400px; background-image: url({{postData.url}}); background-size: cover;"></div>
+  <mat-card-actions>
+    
+    
+    <button
+    mat-icon-button
+    [class.favorite-button-selected]="isFavorite"
+    [class.remove-button]="isInPreferComponent"
+    (click)="isInPreferComponent ? removeFromPrefer() : addToPrefer()">
+    <mat-icon>{{ isInPreferComponent ? 'delete' : 'favorite' }}</mat-icon>
+  </button>
+  <button mat-button>LIKE</button>
+  </mat-card-actions>
+</mat-card>

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -9,10 +10,20 @@ import { MainComponent } from './components/main/main.component';
 import { PostComponent } from './components/post/post.component';
 import { PreferComponent } from './components/prefer/prefer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
+
+
+// IMPORT PER ANGULAR MATERIAL
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatSelectModule} from '@angular/material/select'; 
+import { HttpClientModule } from '@angular/common/http';
+
+
 
 @NgModule({
     declarations: [
@@ -21,8 +32,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
         FooterComponent,
         MainComponent,
         PostComponent,
-        PreferComponent,
-        ToolbarComponent
+        PreferComponent
     ],
     providers: [],
     bootstrap: [AppComponent],
@@ -34,6 +44,11 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
         MatToolbarModule,
         MatIconModule,
         MatButtonModule,
+        MatCardModule,
+        MatSelectModule,
+        ReactiveFormsModule,
+        FormsModule,
+        HttpClientModule
     ]
 })
 export class AppModule { }

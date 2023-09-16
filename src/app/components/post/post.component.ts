@@ -15,10 +15,13 @@ export class PostComponent {
  
   @Input() isInPreferComponent: boolean = false;
 
+  ngOnInit(){
+  }
+
   addToPrefer() {
     this.isFavorite = !this.isFavorite;
-    this.addPreferArray.emit(this.postData); 
-    console.log(this.postData)
+    this.addPreferArray.emit(this.postData);
+    
   }
 
   removeFromPrefer() {
