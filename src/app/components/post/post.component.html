@@ -1,16 +1,16 @@
 <mat-card class="example-card" *ngIf="postData">
   <mat-card-header>
-    <mat-card-title>{{ postData.author }}</mat-card-title>
+    <mat-card-title class="author-card"><a target="_blank" href="https://www.reddit.com/user/{{ postData.author }}/"> {{ postData.author }} </a></mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <p>{{ postData.title }}</p>
+    <p class="title-card">{{ postData.title }}</p>
   </mat-card-content>
   <div *ngIf="postData.url.includes('jpg')" class="post-image"
     style=" height: 400px; width: 400px; background-image: url({{postData.url}}); background-size: cover;"></div>
   <mat-card-actions>
 
 
-    <button mat-icon-button [class.favorite-button-selected]="isFavorite" [class.remove-button]="isInPreferComponent"
+    <button mat-mini-fab matTooltip="Warn" color="warn" [class.favorite-button-selected]="isFavorite" [class.remove-button]="isInPreferComponent"
       (click)="isInPreferComponent ? removeFromPrefer() : addToPrefer()">
       <mat-icon>{{ isInPreferComponent ? 'delete' : 'favorite' }}</mat-icon>
     </button>

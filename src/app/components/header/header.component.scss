@@ -13,9 +13,11 @@
   font-size: 40px;
 }
 
-mat-select{
-  width: 10px !important;
+.media-none{
+  
+  font-family: 'Pacifico', cursive;
 }
+
 
 .prefer-label{
   font-family: 'Pacifico', cursive;
@@ -26,4 +28,31 @@ mat-select{
 
 mat-toolbar{
   height: 100px;
+}
+
+.svg-heart{
+  color: red;
+}
+
+@media(max-width:500px){
+
+  mat-toolbar{
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+    margin: 0;
+    height: 150px;
+    gap: 0;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .media-none{
+    display: none;
+  }
+
+  .link{
+    margin-bottom:16px;
+  }
+
 }

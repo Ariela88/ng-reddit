@@ -27,6 +27,7 @@
     color: #ffffff;
     background-color: #000000;
     border-top: 1px solid #e5e5e5;
+    
   }
   
   .footer > * {
@@ -144,5 +145,15 @@
     
     .footer__nav {
       flex: 2 0px;
+    }
+  }
+
+  @media(max-width:500px){
+
+    .footer{
+      position:unset;
+     
+     
+      
     }
   }
