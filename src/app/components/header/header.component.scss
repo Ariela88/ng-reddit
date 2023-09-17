@@ -1,7 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 .example-spacer {
     flex: 1 1 auto;
   }
 
 .link:hover{
     cursor: pointer;
+}
+
+.link{
+  font-family: 'Pacifico', cursive;
+  font-size: 40px;
+}
+
+mat-select{
+  width: 10px !important;
+}
+
+.prefer-label{
+  font-family: 'Pacifico', cursive;
+  font-size: 20px;
+  text-transform: lowercase;
+
+}
+
+mat-toolbar{
+  height: 100px;
 }

@@ -14,15 +14,19 @@ app-main{
   gap: 24px;
   justify-content: center;
   align-items: center;
-  top: 100px;
+  top: 140px;
+  width: 100%;
 }
 
 app-prefer{
+  width: 100%;
+  position: absolute;
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
   justify-content: center;
   align-items: center;
+  top: 100px;
 }
 
 app-header{
@@ -30,6 +34,7 @@ app-header{
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 10000;
+  z-index: 99;
+  
   
 }

@@ -1,6 +1,6 @@
 <div class="main-header"> 
-  <span class="category-label">Categoria: {{selectedValue}}</span>
-<mat-select class="select-menu" [(ngModel)]="selectedValue" name="food" style="width: 300px;">
+  <span class="category-label" style="display: none;">{{selectedValue}}</span>
+<mat-select class="select-menu" [(ngModel)]="selectedValue" name="food" style="width: 200px; color: white;" placeholder="Categorie">
   
   <mat-option *ngFor="let category of categories" [value]="category.value" (click)="viewValue()">
     {{category.name}} 
@@ -8,6 +8,11 @@
 </mat-select>
 </div>
 
-<div *ngFor="let post of postData">
-  <app-post [postData]="post"></app-post>
-</div>
+
+  <app-post
+  *ngFor="let post of postData"
+  [postData]="post"
+  [preferArray]="preferArray"
+  [isInPreferComponent]="false"
+  (addPreferArray)="addPreferArray($event)"
+></app-post>
