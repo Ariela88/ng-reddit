@@ -9,7 +9,7 @@ import { BehaviorSubject } from 'rxjs';
 export class ConnectionService {
   constructor(private http: HttpClient) {}
 
-  // IL BEHAVIOR SUBJECT E' UNA VARIABILE DINAMICA, PERMETTE DI ESSERE CONTROLLATA DA QUALSIASI COMPONENTE E LE MODIFICHE SONO RUNTIME
+
   public postArray: BehaviorSubject<any> = new BehaviorSubject(null)
 
   getPosts(sub: string){

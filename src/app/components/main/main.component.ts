@@ -20,8 +20,8 @@ export class MainComponent {
       "value": "anime"
     },
     {
-      "name": "Most liked",
-      "value": "most_liked"
+      "name": "Simpson",
+      "value": "simpson"
     },
     {
       "name": "Popolari",
@@ -32,8 +32,15 @@ export class MainComponent {
       "value": "programming"
     },
     {
-      "name": "Italia",
-      "value": "italy"
+      "name": "Rock",
+      "value": "rock_and_roll"
+    },{
+      "name": "South Park",
+      "value": "southpark"
+    },
+    {
+      "name": "Big Bang Theory",
+      "value": "bigbangtheory"
     }
   ]
 
@@ -42,32 +49,22 @@ export class MainComponent {
     private connectionService: ConnectionService,
     private storageService: StorageService
   ) {
-    
-    
+
+
   }
 
-  // async ngOnInit(): Promise<void> {
-  //   try {
-  //     this.preferArray = this.storageService.load('preferArray') || [];
-
-  //     const posts = await this.connectionService.getPosts();
-  //     this.postData = posts;
-  //   } catch (error) {
-  //     console.error('Errore nella chiamata HTTP:', error);
-  //   }
-  // }
   ngOnInit(): void {
     this.postData = this.connectionService.getPosts(this.selectedValue)
-    
+
   }
 
   addPreferArray(post: Post) {
     const isAlreadyAdded = this.preferArray.some(
       (existingPost) => existingPost.id === post.id
     );
-  
+
     if (!isAlreadyAdded) {
-      this.preferArray.push(post); 
+      this.preferArray.push(post);
       this.storageService.save('preferArray', this.preferArray);
     }
   }
@@ -75,5 +72,5 @@ export class MainComponent {
   viewValue(){
     this.postData = this.connectionService.getPosts(this.selectedValue)
   }
-  
+
 }
